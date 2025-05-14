@@ -1,0 +1,114 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 224 71% 4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+
+    --primary: 176 68% 40%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 262 83% 58%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8% 46%;
+
+    --accent: 262 83% 96%;
+    --accent-foreground: 262 83% 28%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 176 68% 40%;
+
+    --radius: 0.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-poppins;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply bg-teal-500 text-white hover:bg-teal-600 px-6 py-3 rounded-md font-medium transition-all duration-300 inline-block shadow-md hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply border-2 border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white px-6 py-2.5 rounded-md font-medium transition-all duration-300 inline-block;
+  }
+
+  .section-title {
+    @apply font-playfair text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-slate-800 relative;
+  }
+
+  .section-subtitle {
+    @apply font-poppins text-lg md:text-xl text-teal-600 mb-10;
+  }
+
+  .nav-link {
+    @apply text-slate-700 hover:text-teal-500 font-medium transition-all;
+  }
+
+  .nav-link.active {
+    @apply text-teal-500 font-medium;
+  }
+
+  .social-icon {
+    @apply w-10 h-10 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white rounded-full transition-all duration-300;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .highlight-text {
+    @apply text-teal-500 font-semibold;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-purple-500;
+  }
+
+  .cta-section {
+    @apply bg-teal-500 text-white py-16 relative z-10 mt-12;
+  }
+
+  .menu-category-button {
+    @apply px-4 py-2 rounded-md font-medium transition-all bg-teal-500 bg-opacity-10 text-teal-700 hover:bg-opacity-20 border border-teal-200;
+  }
+
+  .menu-category-button.active {
+    @apply bg-teal-500 text-white hover:bg-teal-600 border-transparent;
+  }
+
+  .form-section-heading {
+    @apply bg-teal-500 text-white p-6;
+  }
+}

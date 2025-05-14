@@ -1,0 +1,117 @@
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em rgba(56, 178, 172, 0.6));
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em rgba(139, 92, 246, 0.6));
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #64748b;
+}
+
+/* New styles */
+.hero-gradient {
+  background: linear-gradient(90deg, rgba(56,178,172,0.15) 0%, rgba(139,92,246,0.15) 100%);
+}
+
+.card-gradient {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(90deg, #38b2ac, #8b5cf6);
+}
+
+.section-divider {
+  height: 4px;
+  width: 80px;
+  background: linear-gradient(90deg, #38b2ac, #8b5cf6);
+  margin: 1rem auto 2rem;
+  border-radius: 2px;
+}
+
+.shadow-custom {
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* CTA sections */
+.cta-section-light {
+  background-color: rgba(56, 178, 172, 0.1);
+  border: 1px solid rgba(56, 178, 172, 0.2);
+  padding: 3rem 0;
+  border-radius: 0.5rem;
+}
+
+.cta-section-dark {
+  background-color: #38b2ac;
+  color: white;
+  padding: 3rem 0;
+}
+
+/* Menu category buttons */
+.menu-tabs {
+  background-color: rgba(56, 178, 172, 0.05);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(56, 178, 172, 0.1);
+}
+
+.menu-tab-button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border-radius: 0.25rem;
+  background-color: rgba(56, 178, 172, 0.1);
+  color: #38b2ac;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.menu-tab-button:hover, .menu-tab-button.active {
+  background-color: #38b2ac;
+  color: white;
+}
