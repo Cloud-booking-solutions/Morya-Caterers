@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 
@@ -6,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'auto' });
 };
 
   
@@ -75,7 +74,8 @@ const scrollToTop = () => {
                 <Phone size={18} className="text-teal-400 mt-1" />
                 <div>
                   <p className="text-gray-300">Call Us</p>
-                  <a href="tel:+919175202071" className="text-white hover:text-teal-400">+91 9175202071</a>
+                  <a href="tel:+919175202071" className="text-white hover:text-teal-400">+91 9175202071</a><br/>
+                  <a href="tel:+919665202072" className="text-white hover:text-teal-400">+91 9665202072</a>
                 </div>
               </li>
               <li className="flex items-start space-x-3">
@@ -89,7 +89,9 @@ const scrollToTop = () => {
                 <MapPin size={68} className="text-teal-400 mt-1" />
                 <div>
                   <p className="text-gray-300">Our Location</p>
-                  <address className="text-white not-italic">Gold Gym, Near, Kaspate Wasti Rd, Shankar Kalat Nagar, Wakad, Pimpri-Chinchwad, Pune, Maharashtra 411057</address>
+                  <a href="https://maps.google.com/?q=Gold+Gym,+Near,+Kaspate+Wasti+Rd,+Shankar+Kalat+Nagar,+Wakad,+Pimpri-Chinchwad,+Pune,+Maharashtra+411057" target="_blank" rel="noopener noreferrer" className="text-white not-italic underline hover:text-teal-400">
+                    Gold Gym, Near, Kaspate Wasti Rd, Shankar Kalat Nagar, Wakad, Pimpri-Chinchwad, Pune, Maharashtra 411057
+                  </a>
                 </div>
               </li>
             </ul>

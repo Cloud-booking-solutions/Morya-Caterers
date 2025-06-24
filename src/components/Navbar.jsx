@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -27,9 +26,8 @@ const Navbar = () => {
   };
 
   const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-};
-
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
 
   // Handle scrolling effect
   useEffect(() => {

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -17,6 +16,7 @@ const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,32 +26,41 @@ const Contact = () => {
     });
   };
 
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = 'Full name is required';
+    else if (!/^[A-Za-z ]+$/.test(formData.name.trim())) newErrors.name = 'Name can only contain alphabets and spaces';
+    if (!formData.email.trim()) newErrors.email = 'Email is required';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Invalid email address';
+    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
+    else if (!/^\d{10}$/.test(formData.phone.trim())) newErrors.phone = 'Enter a valid 10-digit phone number';
+    if (!formData.message.trim()) newErrors.message = 'Message is required';
+    else if (formData.message.trim().length < 10) newErrors.message = 'Message should be at least 10 characters';
+    return newErrors;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      setFormError(true);
+      setLoading(false);
+      return;
+    }
     setLoading(true);
-    
+    setErrors({});
     // Simulate form submission
     setTimeout(() => {
       setLoading(false);
-      if (formData.name && formData.email && formData.message) {
-        setFormSubmitted(true);
-        setFormError(false);
-        toast({
-          title: "Message Sent!",
-          description: "We'll get back to you soon.",
-          variant: "success",
-        });
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: '',
-        });
-      } else {
-        setFormError(true);
-      }
+      setFormSubmitted(true);
+      setFormError(false);
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you soon.",
+        variant: "success",
+      });
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
     }, 1500);
   };
 
@@ -78,9 +87,8 @@ const Contact = () => {
               </div>
               <h3 className="text-lg font-semibold text-burgundy-800 mb-2">Phone</h3>
               <p className="text-gray-600 mb-3">Call us directly:</p>
-              <a href="tel:+919175202071" className="text-morya-600 font-medium hover:text-morya-800 transition-colors">
-                +91 9175202071
-              </a>
+              <a href="tel:+919175202071" className="text-morya-600 font-medium hover:text-morya-800 transition-colors">+91 9175202071</a><br/>
+              <a href="tel:+919665202072" className="text-morya-600 font-medium hover:text-morya-800 transition-colors">+91 9665202072</a>
             </div>
 
             {/* Contact Card 2 */}
@@ -103,7 +111,9 @@ const Contact = () => {
               <h3 className="text-lg font-semibold text-burgundy-800 mb-2">Location</h3>
               <p className="text-gray-600 mb-3">Our office:</p>
               <address className="text-morya-600 font-medium not-italic">
-                Gold Gym, Near, Kaspate Wasti Rd, Shankar Kalat Nagar, Wakad, Pimpri-Chinchwad, Pune, Maharashtra 411057
+                <a href="https://maps.google.com/?q=Gold+Gym,+Near,+Kaspate+Wasti+Rd,+Shankar+Kalat+Nagar,+Wakad,+Pimpri-Chinchwad,+Pune,+Maharashtra+411057" target="_blank" rel="noopener noreferrer" className="underline hover:text-morya-800">
+                  Gold Gym, Near, Kaspate Wasti Rd, Shankar Kalat Nagar, Wakad, Pimpri-Chinchwad, Pune, Maharashtra 411057
+                </a>
               </address>
             </div>
 
@@ -152,9 +162,10 @@ const Contact = () => {
                     name="name" 
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-morya-600 focus:border-transparent" 
+                    className={`w-full px-4 py-2 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-morya-600 focus:border-transparent`}
                     required 
                   />
+                  {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                 </div>
                 
                 <div className="mb-4">
@@ -165,9 +176,10 @@ const Contact = () => {
                     name="email" 
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-morya-600 focus:border-transparent" 
+                    className={`w-full px-4 py-2 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-morya-600 focus:border-transparent`}
                     required 
                   />
+                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                 </div>
                 
                 <div className="mb-4">
@@ -178,8 +190,9 @@ const Contact = () => {
                     name="phone" 
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-morya-600 focus:border-transparent" 
+                    className={`w-full px-4 py-2 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-morya-600 focus:border-transparent`}
                   />
+                  {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                 </div>
                 
                 <div className="mb-4">
@@ -202,9 +215,10 @@ const Contact = () => {
                     rows="5"
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-morya-600 focus:border-transparent" 
+                    className={`w-full px-4 py-2 border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-morya-600 focus:border-transparent`}
                     required
                   ></textarea>
+                  {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                 </div>
                 
                 <Button 
@@ -336,3 +350,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
