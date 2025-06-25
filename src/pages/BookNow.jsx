@@ -56,10 +56,16 @@ const BookNow = () => {
       if (!formData.firstName.trim()) {
         newErrors.firstName = 'First name is required';
         isValid = false;
+      } else if (!/^[A-Za-z]+$/.test(formData.firstName.trim())) {
+        newErrors.firstName = 'First name should only contain alphabets';
+        isValid = false;
       }
       
       if (!formData.lastName.trim()) {
         newErrors.lastName = 'Last name is required';
+        isValid = false;
+      } else if (!/^[A-Za-z]+$/.test(formData.lastName.trim())) {
+        newErrors.lastName = 'Last name should only contain alphabets';
         isValid = false;
       }
       
@@ -73,6 +79,9 @@ const BookNow = () => {
       
       if (!formData.phone.trim()) {
         newErrors.phone = 'Phone number is required';
+        isValid = false;
+      } else if (!/^\d{10}$/.test(formData.phone.trim())) {
+        newErrors.phone = 'Phone number should be 10 digits';
         isValid = false;
       }
     }

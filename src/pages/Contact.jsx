@@ -340,7 +340,7 @@ const Contact = () => {
           <p className="text-xl max-w-2xl mx-auto mb-8">
             Book our catering services today and let us make your next event special.
           </p>
-          <a href="/book-now" className="bg-white text-teal-600 hover:bg-gray-100 px-8 py-3 rounded-md font-medium transition-all duration-300 inline-block">
+          <a href="/book-now" className="bg-white text-teal-600 hover:bg-gray-100 px-8 py-3 rounded-md font-medium transition-all duration-300 inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
             Book Now
           </a>
         </div>

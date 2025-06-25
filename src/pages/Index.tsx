@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
@@ -20,7 +19,7 @@ const Index = () => {
               <Link to="/menu" className="btn-primary">
                 Explore Our Menu
               </Link>
-              <Link to="/book-now" className="btn-outline text-white border-white hover:bg-white hover:text-morya-800">
+              <Link to="/book-now" className="btn-outline text-white border-white hover:bg-white hover:text-morya-800" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
                 Book Now
               </Link>
             </div>
@@ -243,7 +242,7 @@ const Index = () => {
             Contact us today to discuss your catering needs and let us create a memorable culinary experience for your special occasion.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/book-now" className="btn-primary">
+            <Link to="/book-now" className="btn-primary" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
               Book Now
             </Link>
             <a href="tel:+919175202071" className="btn-outline text-white border-white hover:bg-white hover:text-burgundy-800">

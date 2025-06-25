@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -261,7 +260,7 @@ const Menu = () => {
                     <span className="text-gray-600">Standard Service Staff</span>
                   </li>
                 </ul>
-                <Link to="/book-now" className="btn-primary w-full text-center">
+                <Link to="/book-now" className="btn-primary w-full text-center" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
                   Book Silver Package
                 </Link>
               </div>
@@ -327,7 +326,7 @@ const Menu = () => {
                     <span className="text-gray-600">Basic Beverage Service</span>
                   </li>
                 </ul>
-                <Link to="/book-now" className="btn-primary w-full text-center">
+                <Link to="/book-now" className="btn-primary w-full text-center" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
                   Book Gold Package
                 </Link>
               </div>
@@ -394,7 +393,7 @@ const Menu = () => {
                     <span className="text-gray-600">Live Cooking Stations</span>
                   </li>
                 </ul>
-                <Link to="/book-now" className="btn-primary w-full text-center">
+                <Link to="/book-now" className="btn-primary w-full text-center" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
                   Book Platinum Package
                 </Link>
               </div>
@@ -422,7 +421,7 @@ const Menu = () => {
             Book our catering services for your next event and enjoy the authentic flavors of India.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/book-now" className="btn-primary">
+            <Link to="/book-now" className="btn-primary" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
               Book Now
             </Link>
             <Link to="/contact" className="border-2 border-white text-white hover:bg-white hover:text-burgundy-800 px-6 py-2.5 rounded-md font-medium transition-all duration-300">

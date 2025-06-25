@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
@@ -78,7 +77,7 @@ const Services = () => {
                     </li>
                   </ul>
                 </div>
-                <Link to="/book-now" className="btn-primary">
+                <Link to="/book-now" className="btn-primary" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
                   Book Wedding Catering
                 </Link>
               </div>
@@ -149,7 +148,7 @@ const Services = () => {
                     </li>
                   </ul>
                 </div>
-                <Link to="/book-now" className="btn-primary">
+                <Link to="/book-now" className="btn-primary" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
                   Book Corporate Catering
                 </Link>
               </div>
@@ -206,7 +205,7 @@ const Services = () => {
                     </li>
                   </ul>
                 </div>
-                <Link to="/book-now" className="btn-primary">
+                <Link to="/book-now" className="btn-primary" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
                   Book Private Celebration
                 </Link>
               </div>
@@ -278,7 +277,7 @@ const Services = () => {
                     </li>
                   </ul>
                 </div>
-                <Link to="/book-now" className="btn-primary">
+                <Link to="/book-now" className="btn-primary" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
                   Book Food Truck Service
                 </Link>
               </div>
@@ -437,7 +436,7 @@ const Services = () => {
 </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/book-now" className="bg-teal-400 text-white hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition-all duration-300">
+            <Link to="/book-now" className="bg-teal-400 text-white hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition-all duration-300" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
   Book Now
 </Link>
 

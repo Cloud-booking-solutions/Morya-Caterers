@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const About = () => {
@@ -359,7 +358,7 @@ const About = () => {
 </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-           <a href="/book-now" className="bg-teal-400 text-white hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition-all duration-300">
+           <a href="/book-now" className="bg-teal-400 text-white hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition-all duration-300" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>
   Book Now
 </a>
 
