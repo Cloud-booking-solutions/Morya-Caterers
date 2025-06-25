@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState('breakfast');
+  const menuSectionRef = useRef(null);
 
   const menuCategories = [
     { id: 'breakfast', name: 'Breakfast' },
@@ -61,6 +62,12 @@ const Menu = () => {
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
+    setTimeout(() => {
+      if (menuSectionRef.current) {
+        const y = menuSectionRef.current.getBoundingClientRect().top + window.pageYOffset - 100; // 100px offset for navbar
+        window.scrollTo({ top: y, behavior: 'auto' });
+      }
+    }, 0);
   };
 
   return (
@@ -100,7 +107,7 @@ const Menu = () => {
       </section>
 
       {/* Menu Items */}
-      <section className="py-12">
+      <section className="py-12" ref={menuSectionRef}>
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="section-title">
